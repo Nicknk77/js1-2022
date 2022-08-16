@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+  <script>
+    "use strict";
+
+    function declinationOfNumber(count, one, two, five) {
+      let chosenWord = '';
+      // 1 штука
+      // 2,3,4  штуки
+      // 0,5,6,7,8,9 штук
+      switch (count) {
+        case 1:
+          for (let i = 1; i < arguments.length; i++) {
+            let lastLetter = arguments[i][(arguments[i].length - 1)];
+            if (lastLetter === 'а' || lastLetter === 'т' || lastLetter === 'к' || lastLetter === 'л' || lastLetter === 'р' || lastLetter === 'п' || lastLetter === 'о' || lastLetter === 'ч' || lastLetter === 'щ' || lastLetter === 'ь' || lastLetter === 'щ' || lastLetter === 'й') {
+              chosenWord = arguments[i];
+              return chosenWord;
+            }
+          }
+          break;
+        case 2:
+        case 3:
+        case 4:
+          for (let i = 1; i < arguments.length; i++) {
+            let lastLetter = arguments[i][(arguments[i].length - 1)];
+            if (lastLetter === 'а' || lastLetter === 'и' || lastLetter === 'ы' || lastLetter === 'ж' || lastLetter === 'й') {
+              chosenWord = arguments[i];
+              return chosenWord;
+            }
+          }
+          break;
+        default:
+          for (let i = 1; i < arguments.length; i++) {
+            let lastLetter = arguments[i][(arguments[i].length - 1)];
+            if (lastLetter === 'к' || lastLetter === 'й' || lastLetter === 'к' || lastLetter === 'в' || lastLetter === 'г' || lastLetter === 'в' || lastLetter === 'ж' || lastLetter === 'г' || lastLetter === 'л') {
+              chosenWord = arguments[i];
+              return chosenWord;
+            }
+          }
+          break;
+      }
+    }
+
+    // Число яблок, можно пробовать поставить свое целое, положительное число.
+    const applesNumber = 5;
+    // Получаем от функции одно из слов "яблоко", "яблока" или "яблок".
+
+    const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
+
+    // Выводим корректную строку, например:
+    // "У меня есть 1 яблоко."
+    // "У меня есть 2 яблока."
+    // "У меня есть 5 яблок."
+    // При любом целом, положительном числе в applesNumber, строка, которая
+    // выводится в console.log, должна иметь правильное склонение слова "яблоко".
+
+    console.log(`У меня есть ${applesNumber} ${word}.`);
+
+  </script>
+</body>
+
+</html>
