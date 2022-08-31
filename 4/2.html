@@ -88,6 +88,9 @@
       PostES5.call(this, author, text);
       this.highlighted = false;
     }
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
+
     AttachedPostES5.prototype.makeTextHighlighted = function (light) {
       if (light) this.highlighted = true;
       else this.highlighted = false;
