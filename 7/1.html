@@ -87,9 +87,12 @@
 
     const inpEl = document.querySelector('input');
     const divEl = document.querySelector('#inputDiv');
+    let realSize = (parseInt(window.getComputedStyle(divEl).fontSize));
+    let rangeEl = inpEl.value;
     inpEl.addEventListener('input', event => {
-      divEl.style.fontSize = `${Math.trunc(inpEl.value / 2)}px`;
-    })
+      divEl.style.fontSize = `${Math.trunc(realSize * (inpEl.value / rangeEl))}px`;
+      // divEl.style.fontSize = `${Math.trunc(inpEl.value / 2)}px`;
+    });
 
   </script>
 </body>
